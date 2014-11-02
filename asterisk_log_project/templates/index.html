@@ -1,5 +1,43 @@
 {% extends "base.html" %}
 
 {% block content %}
+<script>
+  $(function(){
+	  $("#id_date_start,#id_date_end").datepicker();
+  });
+</script>
+{% for field in form %}
+	{% if field.errors %}<li><span>&times;</span>{{ field.label }}: {{ field.errors|removetags:"ul li" }}</li>{% endif %}
+{% endfor %}
+{% for error in form.non_field_errors %}
+	<li><span>&times;</span>{{ error }}</li>
+{% endfor %}
 
+
+<form enctype="multipart/form-data" action="" method="POST" class="form-horizontal">
+  {% csrf_token %}
+  {{ form.as_table }}
+  <div class="control-group">
+    <div class="controls">
+        <input type="submit" value="Filter" class="btn btn-primary">
+    </div>
+  </div>
+</form>
+
+<table>
+<tr>
+	<th>Date</th>
+	<th>Source</th>
+	<th>Destination</th>
+	<th>Duration</th>
+</tr>
+{% for call in calls %}
+	<tr>
+		<td>{{ call.calldate }}</td>
+		<td>{{ call.src }}</td>
+		<td>{{ call.dst }}</td>
+		<td>{{ call.duration }}</td>
+	</tr>
+{% endfor %}
+</table>
 {% endblock %}
