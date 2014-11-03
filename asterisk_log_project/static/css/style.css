@@ -1,0 +1,45 @@
+body {
+    margin: 10px;
+}
+
+.loading {
+    background-image: url('../img/loading.gif');
+    width: 32px;
+    height: 32px;
+    margin: auto;
+    margin-top: 200px;
+}
+
+.login_panel {
+    float: right;
+    position: absolute;
+    right: 20px;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.duration {
+	width: 40px;
+}
+
+label {
+	font-weight: normal;
+}
+
+input {
+	margin-right: 10px;
+}
