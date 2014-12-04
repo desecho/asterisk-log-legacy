@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load sec_to_dur %}
+
 {% block content %}
 <script>
   $(function(){
@@ -18,7 +20,7 @@
   {% csrf_token %}
 	<div class="form-group">
 		Телефон:
-		{{ form.phone}}
+		{% if user.is_superuser %}{{ form.phone}} {% endif %}
 		<label for="id_source">Откуда</label> {{ form.source}}
 		<label for="id_destination">Куда</label> {{ form.destination}}
 	</div><br><br>
@@ -50,7 +52,7 @@
 			<td>{{ call.calldate }}</td>
 			<td>{{ call.src }}</td>
 			<td>{{ call.dst }}</td>
-			<td>{{ call.duration }}</td>
+			<td>{{ call.duration|sectodur }}</td>
 		</tr>
 	{% endfor %}
 	</table>

@@ -27,9 +27,11 @@
     <title>{% block title %}Asterisk Log{% endblock %}</title>
 </head>
 <body>
+    {% if user.is_authenticated %}
     <div class="login_panel">
         <a href="/logout/">Выход</a><br>
     </div>
+    {% endif %}
     <div class="content">
         {% block content %}{% endblock %}
     </div>
