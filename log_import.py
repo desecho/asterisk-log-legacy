@@ -4,24 +4,11 @@ import MySQLdb
 import sys
 import pickle
 import os
+from config import db_from_config, db_to_config
 
 os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 
 FILENAME = 'last_id'
-
-db_from_config = {
-    'host':'asterisk.astsystems.ru',
-    'login':'asterisk_web',
-    'password': 'Ii7kuX2r',
-    'db': 'asteriskcdrdb',
-}
-
-db_to_config = {
-    'host':'localhost',
-    'login':'asterisk',
-    'password': '8zWbH4VqdVxfVf72',
-    'db': 'asterisk',
-}
 
 db_from = MySQLdb.connect(db_from_config['host'], db_from_config['login'], db_from_config['password'], db_from_config['db'], charset="utf8")
 cursor_from = db_from.cursor()

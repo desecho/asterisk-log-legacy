@@ -4,6 +4,7 @@ asterisk_log_project/static/bower/
 asterisk_log_project/asterisk_log_project/secret.py
 asterisk_log_project/asterisk_log_project/local_settings.py
 last_id
+config.py
 
 *.py[cod]
 # OS X meta data
