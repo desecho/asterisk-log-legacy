@@ -39,4 +39,4 @@ def home(request):
             calls = calls.filter(src=form.cleaned_data['source'])
         if form.cleaned_data['destination']:
             calls = calls.filter(dst=form.cleaned_data['destination'])
-    return {'form': form, 'calls': calls}
+    return {'form': form, 'calls': calls.select_related()}
